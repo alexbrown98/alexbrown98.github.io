@@ -27,6 +27,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Manrope", sans-serif;
             margin: 0;
@@ -47,12 +51,45 @@
             padding: 56px 0 22px;
         }
 
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
         #branding h1 {
             margin: 0;
             font-family: "Space Grotesk", sans-serif;
             font-size: clamp(2rem, 4.3vw, 3.8rem);
             letter-spacing: -0.03em;
             line-height: 1.05;
+        }
+
+        .section-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-nav a {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--stroke);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+        }
+
+        .section-nav a:hover {
+            transform: translateY(-2px);
+            background: #ffffff;
+            border-color: rgba(16, 19, 34, 0.2);
         }
 
         .tagline {
@@ -67,7 +104,8 @@
             padding: 26px 0 70px;
         }
 
-        #projects h2 {
+        #projects h2,
+        #thesis h2 {
             margin: 0 0 22px;
             font-family: "Space Grotesk", sans-serif;
             font-size: clamp(1.5rem, 2.2vw, 2rem);
@@ -150,6 +188,101 @@
             transform: translateY(-2px);
         }
 
+        #thesis {
+            padding: 0 0 80px;
+        }
+
+        .thesis-card {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+            gap: 28px;
+            align-items: stretch;
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 750ms ease-out both;
+        }
+
+        .thesis-visual {
+            min-height: 280px;
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 36%),
+                linear-gradient(145deg, #18203d 0%, #25346a 50%, #ff6f3c 145%);
+            color: #ffffff;
+        }
+
+        .thesis-label {
+            display: inline-flex;
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .thesis-visual h3 {
+            margin: 18px 0 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .thesis-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .thesis-meta span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.9rem;
+        }
+
+        .thesis-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .thesis-content p {
+            margin: 0 0 16px;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 1rem;
+        }
+
+        .thesis-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .project-link.secondary-link {
+            background: transparent;
+            color: var(--ink) !important;
+            border: 1px solid var(--stroke);
+        }
+
+        .project-link.secondary-link:hover {
+            background: rgba(16, 19, 34, 0.05);
+        }
+
         footer {
             border-top: 1px solid var(--stroke);
             padding: 24px 0 30px;
@@ -175,19 +308,44 @@
                 padding-top: 40px;
             }
 
+            .header-top {
+                align-items: flex-start;
+            }
+
             .project-content {
                 padding: 16px;
+            }
+
+            .thesis-card {
+                padding: 18px;
+            }
+
+            .thesis-visual {
+                min-height: 220px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .thesis-card {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
-<body>
+<body id="top">
     <header>
         <div class="container">
-            <div id="branding">
-                <h1>Alex Brown</h1>
-                <!-- <p class="tagline">I build practical products at the intersection of AI, developer tools, and real-time web experiences.</p> -->
+            <div class="header-top">
+                <div id="branding">
+                    <h1>Alex Brown</h1>
+                    <!-- <p class="tagline">I build practical products at the intersection of AI, developer tools, and real-time web experiences.</p> -->
+                </div>
+                <nav class="section-nav" aria-label="Section navigation">
+                    <a href="#projects">Projects</a>
+                    <a href="#thesis">Thesis</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -218,16 +376,6 @@
                 </article>
 
                 <article class="project">
-                    <img src="carvault.png" alt="Car Vault screenshot" />
-                    <div class="project-content">
-                        <h3>Car Vault</h3>
-                        <p>A car marketplace in Cyprus with listing verification and lots of filters.</p>
-                        <a class="project-link" href="https://car-vault-mauve.vercel.app/" target="_blank"
-                            rel="noopener noreferrer">Visit Project</a>
-                    </div>
-                </article>
-
-                <article class="project">
                     <img src="devkit.png" alt="DevKit Cloud screenshot" />
                     <div class="project-content">
                         <h3>DevKit Cloud</h3>
@@ -247,8 +395,53 @@
                     </div>
                 </article>
 
+                <article class="project">
+                    <img src="tournaments.png" alt="Tournaments" />
+                    <div class="project-content">
+                        <h3>Football Tournament Scheduling</h3>
+                        <p>Tournament scheduling, registering, and management for Lythrodontas football academy in Cyprus.</p>
+                        <a class="project-link" href="https://www.lythrodontasfootballacademy.com/" target="_blank"
+                           rel="noopener noreferrer">Visit Project</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <img src="carvault.png" alt="Car Vault screenshot" />
+                    <div class="project-content">
+                        <h3>Car Vault (Work in progress)</h3>
+                        <p>A car marketplace in Cyprus with listing verification and lots of filters.</p>
+                        <a class="project-link" href="https://car-vault-mauve.vercel.app/" target="_blank"
+                           rel="noopener noreferrer">Visit Project</a>
+                    </div>
+                </article>
 
             </div>
+        </section>
+
+        <section id="thesis">
+            <h2>Thesis</h2>
+            <article class="thesis-card">
+                <div class="thesis-visual">
+                    <span class="thesis-label">Research</span>
+                    <h3>Network Analysis of Cryptocurrency Transactions</h3>
+                    <div class="thesis-meta">
+                        <span>PDF</span>
+                        <span>Thesis</span>
+                        <span>Network Analysis</span>
+                    </div>
+                </div>
+                <div class="thesis-content">
+                    <p>This thesis explores cryptocurrency transactions through the lens of network analysis, focusing
+                        on how graph structure can reveal behavioral patterns, relationships, and movement across
+                        the Bitcoin blockchain.</p>
+                    <div class="thesis-actions">
+                        <a class="project-link" href="network-analysis-of-cryptocurrency-transactions.pdf"
+                            target="_blank" rel="noopener noreferrer">Read Thesis</a>
+                        <a class="project-link secondary-link"
+                            href="network-analysis-of-cryptocurrency-transactions.pdf" download>Download PDF</a>
+                    </div>
+                </div>
+            </article>
         </section>
     </div>
 
