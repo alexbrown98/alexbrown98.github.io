@@ -119,6 +119,8 @@
         }
 
         .project {
+            display: flex;
+            flex-direction: column;
             background: var(--card);
             border: 1px solid var(--stroke);
             border-radius: 16px;
@@ -207,6 +209,9 @@
         }
 
         .project-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
             padding: 18px;
         }
 
@@ -229,6 +234,8 @@
 
         .project-link {
             display: inline-block;
+            align-self: flex-start;
+            margin-top: auto;
             padding: 10px 14px;
             border-radius: 999px;
             background: var(--brand);
