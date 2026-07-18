@@ -151,6 +151,61 @@
             display: block;
         }
 
+        .port-explorer-preview {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            padding: 18px;
+            background:
+                radial-gradient(circle at 86% 10%, rgba(255, 111, 60, 0.95) 0 7%, transparent 7.5%),
+                linear-gradient(145deg, #121b34 0%, #202c55 56%, #111827 100%);
+            color: #f9fafb;
+        }
+
+        .port-explorer-preview::before {
+            content: "PORT EXPLORER";
+            display: inline-flex;
+            padding: 7px 9px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 999px;
+            color: #cbd5e1;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .preview-port-list {
+            display: grid;
+            gap: 7px;
+            margin-top: 19px;
+        }
+
+        .preview-port-row {
+            display: grid;
+            grid-template-columns: 38px 1fr 42px;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.66);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.62rem;
+        }
+
+        .preview-port-row span:first-child {
+            color: #f8b39c;
+            font-weight: 700;
+        }
+
+        .preview-port-row span:last-child {
+            color: #9ce3b8;
+            font-size: 0.55rem;
+            text-align: right;
+        }
+
         .project-content {
             padding: 18px;
         }
@@ -402,6 +457,22 @@
                         <p>Tournament scheduling, registering, and management for Lythrodontas football academy in Cyprus.</p>
                         <a class="project-link" href="https://www.lythrodontasfootballacademy.com/" target="_blank"
                            rel="noopener noreferrer">Visit Project</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="port-explorer-preview" role="img"
+                        aria-label="Port Explorer app preview showing local development ports">
+                        <div class="preview-port-list">
+                            <div class="preview-port-row"><span>3000</span><span>node · dashboard</span><span>TCP</span></div>
+                            <div class="preview-port-row"><span>5432</span><span>postgres · local</span><span>TCP</span></div>
+                            <div class="preview-port-row"><span>8080</span><span>java · app.jar</span><span>TCP</span></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Port Explorer</h3>
+                        <p>A local port manager that helps developers find, inspect, and safely stop processes.</p>
+                        <a class="project-link" href="port-explorer/">Explore Port Explorer</a>
                     </div>
                 </article>
             </div>
